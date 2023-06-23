@@ -1,23 +1,19 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Pool } from 'pg';
+import { VersionRepository } from './repository/version.repository';
 
 @Injectable()
 export class AppService {
-  constructor(@Inject('DATABASE_POOL') private readonly pool: Pool) { }
+  constructor(private readonly versionRepo: VersionRepository) { }
 
   getHello(): string {
     return 'Hello World!';
   }
   async getPostgresVersion(): Promise<void> {
-    let client;
     try {
-      client = await this.pool.connect();
-      const res = await client.query('SELECT version()');
-      console.log(res.rows[0]);
+      const version = await this.versionRepo.getVersion();
+      console.log(version);
     } catch (error) {
       console.error('Error connecting to PostgreSQL:', error);
-    } finally {
-      client.release();
     }
   }
 }
