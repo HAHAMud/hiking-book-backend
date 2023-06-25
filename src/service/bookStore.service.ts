@@ -7,6 +7,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 @Injectable()
 export class BookStoreService {
     private logger = new Logger(BookStoreService.name);
+    private readonly tableName: string = 'book_store';
+    private readonly tableSchema: Array<string> = [
+        'id',
+        'author',
+        'name',
+        'publication',
+        'createdAt',
+        'updatedAt',
+    ];
     constructor(
         private readonly dataSource: DataSource,
         @InjectRepository(BookStoreEntity)
@@ -59,18 +68,11 @@ export class BookStoreService {
         try {
             const queryBuilder = this.dataSource
                 .getRepository(BookStoreEntity)
-                .createQueryBuilder('book_store');
+                .createQueryBuilder(this.tableName);
             const result = await queryBuilder
                 .update<BookStoreEntity>(BookStoreEntity, updateDto)
-                .where('book_store.id = :id', { id })
-                .returning([
-                    'id',
-                    'author',
-                    'name',
-                    'publication',
-                    'createdAt',
-                    'updatedAt',
-                ])
+                .where(`${this.tableName}.id = :id`, { id })
+                .returning(this.tableSchema)
                 .updateEntity(true)
                 .execute();
             const model = result.raw[0] as BookStoreEntity;
@@ -96,19 +98,12 @@ export class BookStoreService {
             data.publication = dto.publication;
             const queryBuilder = this.dataSource
                 .getRepository(BookStoreEntity)
-                .createQueryBuilder('book_store');
+                .createQueryBuilder(this.tableName);
             const result = await queryBuilder
                 .insert()
                 .into(BookStoreEntity)
                 .values([data])
-                .returning([
-                    'id',
-                    'author',
-                    'name',
-                    'publication',
-                    'createdAt',
-                    'updatedAt',
-                ])
+                .returning(this.tableSchema)
                 .updateEntity(true)
                 .execute();
             const model = result.raw[0] as BookStoreDto;
@@ -133,18 +128,11 @@ export class BookStoreService {
             this.logger.log({ id });
             const queryBuilder = this.dataSource
                 .getRepository(BookStoreEntity)
-                .createQueryBuilder('book_store');
+                .createQueryBuilder(this.tableName);
             const result = await queryBuilder
                 .delete()
-                .where('book_store.id = :id', { id })
-                .returning([
-                    'id',
-                    'author',
-                    'name',
-                    'publication',
-                    'createdAt',
-                    'updatedAt',
-                ])
+                .where(`${this.tableName}.id = :id`, { id })
+                .returning(this.tableSchema)
                 .execute();
             const model = result.raw[0] as BookStoreDto;
             model.createdAt = new Date(result.raw[0]['created_at']).getTime();
