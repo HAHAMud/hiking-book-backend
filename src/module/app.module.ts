@@ -4,7 +4,7 @@ import { AppService } from '../service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as Joi from 'joi';
-import { BookStoreModule } from './bookStore.module'
+import { BookStoreModule } from './bookStore.module';
 
 @Module({
   imports: [
@@ -31,7 +31,7 @@ import { BookStoreModule } from './bookStore.module'
           type: 'postgres',
           url: configService.getOrThrow('DATABASE_URL', ''),
           synchronize: false,
-          autoLoadEntities: true
+          autoLoadEntities: true,
         };
       },
       inject: [ConfigService],
@@ -42,4 +42,4 @@ import { BookStoreModule } from './bookStore.module'
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

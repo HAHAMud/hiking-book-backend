@@ -1,1 +1,1 @@
-export * from "./book-store.dto";
+export * from './book-store.dto';
