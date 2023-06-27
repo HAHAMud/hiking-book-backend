@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as Joi from 'joi';
-import { AppController, AppService } from './index';
-import { BookStoreModule } from '../bookStore/index';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { BookStoreModule } from '../bookStore/bookStore.module';
 
 @Module({
   imports: [
-    BookStoreModule,
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
@@ -35,6 +35,7 @@ import { BookStoreModule } from '../bookStore/index';
       },
       inject: [ConfigService],
     }),
+    BookStoreModule
   ],
   //imports: [,BookStoreModule, TypeOrmModule],
   controllers: [AppController],

@@ -1,6 +1,7 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
-import { BookStoreDto, BookStoreEntity } from './index';
+import { BookStoreDto } from './book-store.dto';
+import { BookStoreEntity } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
