@@ -10,4 +10,4 @@ import { BookStoreEntity } from './user.entity';
   providers: [BookStoreService],
   exports: [BookStoreModule]
 })
-export class BookStoreModule { }
+export class BookStoreModule {}
