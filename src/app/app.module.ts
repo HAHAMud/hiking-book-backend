@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from '../controller';
-import { AppService } from '../service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as Joi from 'joi';
-import { BookStoreModule } from './bookStore.module';
+import { AppController, AppService } from './index';
+import { BookStoreModule } from '../bookStore/index';
 
 @Module({
   imports: [
@@ -36,10 +35,9 @@ import { BookStoreModule } from './bookStore.module';
       },
       inject: [ConfigService],
     }),
-    BookStoreModule,
   ],
   //imports: [,BookStoreModule, TypeOrmModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
