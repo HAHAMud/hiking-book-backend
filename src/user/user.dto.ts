@@ -4,7 +4,7 @@
  * @class UserDto
  * @implements {User}
  * @param {string} id - User uuid
- * @param {string} name - User name
+ * @param {string} name - User 名字
  * @param {string} identity - User 身份證
  * @param {Date} birthday - User 生日
  * @param {string} phone - User 電話
