@@ -1,7 +1,6 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
-import { BookStoreDto } from '../dto';
-import { BookStoreEntity } from '../entity';
+import { BookStoreDto, BookStoreEntity } from './index';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
@@ -20,7 +19,7 @@ export class BookStoreService {
     private readonly dataSource: DataSource,
     @InjectRepository(BookStoreEntity)
     private readonly bookStoreRepo: Repository<BookStoreEntity>,
-  ) {}
+  ) { }
   async getBookList(): Promise<BookStoreDto[]> {
     try {
       const result = await this.bookStoreRepo.find();
