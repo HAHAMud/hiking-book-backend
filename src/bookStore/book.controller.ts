@@ -4,7 +4,7 @@ import { BookStoreDto } from './book-store.dto';
 
 @Controller('books')
 export class BookController {
-  constructor(private readonly bookStoreService: BookStoreService) { }
+  constructor(private readonly bookStoreService: BookStoreService) {}
 
   @Get()
   async get(): Promise<BookStoreDto[]> {

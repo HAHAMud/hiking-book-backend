@@ -35,7 +35,7 @@ import { BookStoreModule } from '../bookStore/bookStore.module';
       },
       inject: [ConfigService],
     }),
-    BookStoreModule
+    BookStoreModule,
   ],
   //imports: [,BookStoreModule, TypeOrmModule],
   controllers: [AppController],
