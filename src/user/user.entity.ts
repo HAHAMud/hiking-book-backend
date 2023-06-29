@@ -42,7 +42,7 @@ export class UserEntity {
     type: 'varchar',
     length: '20',
   })
-  tex_phone: string;
+  texPhone: string;
 
   @Column({
     name: 'email',
@@ -83,14 +83,14 @@ export class UserEntity {
     type: 'varchar',
     length: '100',
   })
-  exmergency_name: string;
+  exmergencyName: string;
 
   @Column({
     name: 'exmergency_phone',
     type: 'varchar',
     length: '20',
   })
-  exmergency_phone: string;
+  exmergencyPhone: string;
 
   // 自動生成建立時間
   @CreateDateColumn({
