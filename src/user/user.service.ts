@@ -35,7 +35,6 @@ export class UserService {
     // 獲取所有的 user 資料
     try {
       const result = await this.userRepo.find();
-
       return result;
     } catch (error) {
       this.logger.error({ message: 'getUserList error' }, error);
