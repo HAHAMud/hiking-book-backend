@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import UserEntity from './user.entity';
 import UserService from './user.service';
+import { UserDto } from './user.dto';
 
 @Controller('users')
 export default class UserController {
@@ -19,7 +20,7 @@ export default class UserController {
    * @returns
    */
   @Get()
-  async findAll(): Promise<UserEntity[]> {
+  async findAll(): Promise<UserDto[]> {
     return await this.userService.getUserList();
   }
 
@@ -29,7 +30,7 @@ export default class UserController {
    * @returns
    */
   @Get(':id')
-  async findOne(@Param('id') id: number): Promise<UserEntity> {
+  async findOne(@Param('id') id: number): Promise<UserDto> {
     return await this.userService.getUserById(id);
   }
 
@@ -39,7 +40,7 @@ export default class UserController {
    * @returns
    */
   @Post()
-  async create(@Body() user: UserEntity): Promise<UserEntity> {
+  async create(@Body() user: UserEntity): Promise<UserDto> {
     return await this.userService.createUser(user);
   }
 
