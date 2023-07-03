@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity('user', { schema: 'public' })
-export default class UserEntity {
+export class UserEntity {
   // 自動生成 id
   @PrimaryGeneratedColumn('increment')
   id: number;

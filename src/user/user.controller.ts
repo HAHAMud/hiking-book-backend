@@ -7,12 +7,12 @@ import {
   Delete,
   Put,
 } from '@nestjs/common';
-import UserEntity from './user.entity';
-import UserService from './user.service';
+import { UserEntity } from './user.entity';
+import { UserService } from './user.service';
 import { UserDto } from './user.dto';
 
 @Controller('users')
-export default class UserController {
+export class UserController {
   constructor(private readonly userService: UserService) {}
 
   /**

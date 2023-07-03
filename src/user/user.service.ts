@@ -1,11 +1,11 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
-import UserEntity from './user.entity';
+import { UserEntity } from './user.entity';
 import { UserDto } from './user.dto';
 
 @Injectable()
-export default class UserService {
+export class UserService {
   private logger = new Logger(UserService.name);
   private readonly tableName: string = 'user';
   private readonly tableSchema: Array<string> = [
