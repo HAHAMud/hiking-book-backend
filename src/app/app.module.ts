@@ -5,6 +5,7 @@ import * as Joi from 'joi';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BookStoreModule } from '../bookStore/bookStore.module';
+import UserModule from '../user/user.module';
 
 @Module({
   imports: [
@@ -35,10 +36,11 @@ import { BookStoreModule } from '../bookStore/bookStore.module';
       },
       inject: [ConfigService],
     }),
-    BookStoreModule
+    BookStoreModule,
+    UserModule,
   ],
   //imports: [,BookStoreModule, TypeOrmModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

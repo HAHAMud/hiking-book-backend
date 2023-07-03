@@ -20,7 +20,7 @@ export class BookStoreService {
     private readonly dataSource: DataSource,
     @InjectRepository(BookStoreEntity)
     private readonly bookStoreRepo: Repository<BookStoreEntity>,
-  ) { }
+  ) {}
   async getBookList(): Promise<BookStoreDto[]> {
     try {
       const result = await this.bookStoreRepo.find();
