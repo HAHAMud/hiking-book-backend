@@ -1,30 +1,8 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+我們深深熱愛攀登高山，享受著每一步踏上壯麗世界的喜悅。這個爬山專案是為台灣的登山愛好者而設計的，希望能為他們提供一個探索自然之美的機會，同時支援並引導他們實現攀登夢想。我們堅定地相信，透過一步一個腳印，我們能創造出令人難忘的登山體驗，同時與台灣的登山社群共同成長。
 
 ## Installation
 
@@ -38,36 +16,28 @@ $ yarn install
 # development
 $ yarn run start
 
-# watch mode
-$ yarn run start:dev
+# create migration
+$ yarn typeorm:create-migration --name=<TABLE_NAME>
 
-# production mode
-$ yarn run start:prod
+# run migration
+$ yarn typeorm:run-migrations
+
+# update migration
+$ yarn typeorm:generate-migration
+
+# revert migration
+$ yarn typeorm:revert-migration
 ```
 
-## Test
+## 我們的願景
 
-```bash
-# unit tests
-$ yarn run test
+| 功能   | 功能描述                                                                                                                         | 備註 |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---- |
+| 登入   | 使用者可以建立帳戶，並登入                                                                                              |      |
+| 山峰資訊 | 提供各種台灣山峰的資訊，包括名稱、海拔高度、位置、難度等級等                                           |      |
+| 行程規劃 |  使用者可以建立自己的登山行程，選擇欲攀登的山峰及行程日期。系統可以根據使用者提供的資訊生成行程規劃，並顯示預計所需時間和推薦路線 |      |
+| 裝備清單 | 使用者可以建立登山裝備清單，列出所需的裝備和用品。系統可以提供常見的登山裝備建議，並允許使用者自訂和編輯清單 |      |
+| 天氣預報 | 系統可以整合天氣預報服務，為使用者提供目標山峰的天氣狀況和預測，以協助他們做出更明智的決策 |      |
+| 社群分享 | 應用程式可以提供使用者社群功能，讓使用者之間進行交流、分享經驗和建議。使用者可以發布登山照片、行程日誌，並提問或回答其他使用者的問題 |      |
+| 安全提醒 | 應用程式可以提供安全提示和警示，包括登山風險、氣象警報、路線危險等資訊，以協助使用者做出安全的決策並減少風險 |      |
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
